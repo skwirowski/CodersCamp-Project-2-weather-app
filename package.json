@@ -1,0 +1,24 @@
+{
+  "name": "coderscamp-project-2-weather-app",
+  "version": "1.0.0",
+  "description": "Coders Camp course project weather application using JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skwirowski/CodersCamp-project-2-weather-app.git"
+  },
+  "author": "marta kasia lukasz pawel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skwirowski/CodersCamp-project-2-weather-app/issues"
+  },
+  "homepage": "https://github.com/skwirowski/CodersCamp-project-2-weather-app#readme",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
