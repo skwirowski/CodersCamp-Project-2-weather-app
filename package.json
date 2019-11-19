@@ -18,7 +18,14 @@
   },
   "homepage": "https://github.com/skwirowski/CodersCamp-project-2-weather-app#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/runtime": "^7.7.2"
   }
 }
