@@ -4,8 +4,7 @@ module.exports = {
   mode: 'development',
   entry: './src/javascript/app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: './dist/main.js'
   },
   module: {
     rules: [
@@ -28,5 +27,9 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  devServer: {
+    port: 3000,
+    open: true
+  },
 };
