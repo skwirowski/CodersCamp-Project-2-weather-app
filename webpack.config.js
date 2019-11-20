@@ -1,12 +1,13 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
-let path = require('path');
+// eslint-disable-next-line prefer-destructuring
+const resolve = require('path').resolve;
 
 module.exports = {
   mode: 'development',
-  entry: './src/javascript/app.js',
+  entry: './src/javascript/index.js',
   output: {
-    filename: './dist/main.js',
+    path: resolve('dist'),
+    filename: 'main.js',
+    publicPath: '/dist/assets',
   },
   module: {
     rules: [
@@ -28,6 +29,21 @@ module.exports = {
             ],
           },
         },
+      },
+      {
+        test: /\.less$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'less-loader', // compiles Less to CSS
+          },
+        ],
       },
     ],
   },

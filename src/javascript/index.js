@@ -1,7 +1,8 @@
-import externalFunction from './externalScript';
-import { anotherExternalFunction } from './anotherExternalScript';
+import externalFunction from './exampleScript';
+import { anotherExternalFunction } from './anotherExampleScript';
+import '../less/styles.less';
 
-const something = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const something = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 const funct = () => console.log('spread operator works', [...something]);
 

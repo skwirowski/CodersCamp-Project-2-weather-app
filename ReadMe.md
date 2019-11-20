@@ -15,7 +15,7 @@ Use to start development server. Server will auto reload browser after detecting
 ## Webpack content:
 1. Babel transpiler (with async/await),
 2. Development server,
-3. Less compiler *(not added yet)*.
+3. Less compiler *(production version is not added yet)*.
 
 ## Linters:
 1. ESLint,
