@@ -1,10 +1,12 @@
-var path = require('path');
+/* eslint-disable prefer-const */
+/* eslint-disable no-unused-vars */
+let path = require('path');
 
 module.exports = {
   mode: 'development',
   entry: './src/javascript/app.js',
   output: {
-    filename: './dist/main.js'
+    filename: './dist/main.js',
   },
   module: {
     rules: [
@@ -17,19 +19,19 @@ module.exports = {
             presets: ['@babel/preset-env'],
             plugins: [
               '@babel/plugin-proposal-object-rest-spread',
-              ["@babel/plugin-transform-runtime",
+              ['@babel/plugin-transform-runtime',
                 {
-                  "regenerator": true
-                }
-              ]
-            ]
-          }
-        }
-      }
-    ]
+                  regenerator: true,
+                },
+              ],
+            ],
+          },
+        },
+      },
+    ],
   },
   devServer: {
     port: 3000,
-    open: true
+    open: true,
   },
 };

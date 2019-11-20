@@ -10,7 +10,7 @@ const newFunction = async () => {
   const resolvedData = await someData.json();
   const readyData = resolvedData;
   console.log('async await function works fine;', readyData.results);
-}
+};
 
 funct();
 newFunction();
