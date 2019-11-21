@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/javascript/app.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/javascript/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -104,7 +104,7 @@ eval("module.exports = __webpack_require__(/*! regenerator-runtime */ \"./node_m
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".body {\\n  background-color: skyblue;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/less/styles.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nexports.push([module.i, \"@import url(https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap);\", \"\"]);\n// Module\nexports.push([module.i, \"body {\\n  background-color: #f4f4f4;\\n  font-family: 'Roboto', sans-serif;\\n  font-weight: 400;\\n  color: #3a3a3a;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/less/styles.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -143,39 +143,75 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
-/***/ "./src/javascript/anotherExternalScript.js":
-/*!*************************************************!*\
-  !*** ./src/javascript/anotherExternalScript.js ***!
-  \*************************************************/
+/***/ "./src/javascript/anotherExampleScript.js":
+/*!************************************************!*\
+  !*** ./src/javascript/anotherExampleScript.js ***!
+  \************************************************/
 /*! exports provided: anotherExternalFunction */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"anotherExternalFunction\", function() { return anotherExternalFunction; });\nfunction anotherExternalFunction() {\n  var arr = [1, 2, 3, 4, 5];\n  var newArr = arr.map(function (item) {\n    return \"\".concat(item, \"-stringified\");\n  });\n  return newArr;\n}\n\n//# sourceURL=webpack:///./src/javascript/anotherExternalScript.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"anotherExternalFunction\", function() { return anotherExternalFunction; });\nfunction anotherExternalFunction() {\n  var arr = [1, 2, 3, 4, 5];\n  var newArr = arr.map(function (item) {\n    return \"\".concat(item, \"-stringified\");\n  });\n  return newArr;\n}\n\n//# sourceURL=webpack:///./src/javascript/anotherExampleScript.js?");
 
 /***/ }),
 
-/***/ "./src/javascript/app.js":
-/*!*******************************!*\
-  !*** ./src/javascript/app.js ***!
-  \*******************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ \"./node_modules/@babel/runtime/regenerator/index.js\");\n/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _externalScript__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./externalScript */ \"./src/javascript/externalScript.js\");\n/* harmony import */ var _anotherExternalScript__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./anotherExternalScript */ \"./src/javascript/anotherExternalScript.js\");\n/* harmony import */ var _less_styles_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../less/styles.less */ \"./src/less/styles.less\");\n/* harmony import */ var _less_styles_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_less_styles_less__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\nvar something = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];\n\nvar funct = function funct() {\n  return console.log('spread operator works', [].concat(something));\n};\n\nvar newFunction = function newFunction() {\n  var someData, resolvedData, readyData;\n  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function newFunction$(_context) {\n    while (1) {\n      switch (_context.prev = _context.next) {\n        case 0:\n          _context.next = 2;\n          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch('https://randomuser.me/api/?results=2'));\n\n        case 2:\n          someData = _context.sent;\n          _context.next = 5;\n          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(someData.json());\n\n        case 5:\n          resolvedData = _context.sent;\n          readyData = resolvedData;\n          console.log('async await function works fine;', readyData.results);\n\n        case 8:\n        case \"end\":\n          return _context.stop();\n      }\n    }\n  });\n};\n\nfunct();\nnewFunction();\nObject(_externalScript__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nconsole.log(Object(_anotherExternalScript__WEBPACK_IMPORTED_MODULE_2__[\"anotherExternalFunction\"])());\n\n//# sourceURL=webpack:///./src/javascript/app.js?");
-
-/***/ }),
-
-/***/ "./src/javascript/externalScript.js":
-/*!******************************************!*\
-  !*** ./src/javascript/externalScript.js ***!
-  \******************************************/
+/***/ "./src/javascript/attributes/apiId.js":
+/*!********************************************!*\
+  !*** ./src/javascript/attributes/apiId.js ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return externalFunction; });\nfunction externalFunction() {\n  console.log('this is external script function message and continues');\n}\n\n//# sourceURL=webpack:///./src/javascript/externalScript.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ('3a701e2361b9ae55627f7793b469102c');\n\n//# sourceURL=webpack:///./src/javascript/attributes/apiId.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/attributes/apiUrl.js":
+/*!*********************************************!*\
+  !*** ./src/javascript/attributes/apiUrl.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ('http://api.openweathermap.org/data/2.5/weather?units=metric&');\n\n//# sourceURL=webpack:///./src/javascript/attributes/apiUrl.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/exampleScript.js":
+/*!*****************************************!*\
+  !*** ./src/javascript/exampleScript.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return externalFunction; });\nfunction externalFunction() {\n  console.log('this is external script function message and continues');\n}\n\n//# sourceURL=webpack:///./src/javascript/exampleScript.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/index.js":
+/*!*********************************!*\
+  !*** ./src/javascript/index.js ***!
+  \*********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ \"./node_modules/@babel/runtime/regenerator/index.js\");\n/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _exampleScript__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exampleScript */ \"./src/javascript/exampleScript.js\");\n/* harmony import */ var _anotherExampleScript__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./anotherExampleScript */ \"./src/javascript/anotherExampleScript.js\");\n/* harmony import */ var _less_styles_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../less/styles.less */ \"./src/less/styles.less\");\n/* harmony import */ var _less_styles_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_less_styles_less__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _utility_fetcher__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utility/fetcher */ \"./src/javascript/utility/fetcher.js\");\n\n\n\n\n\nvar something = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];\n\nvar funct = function funct() {\n  return console.log('spread operator works', [].concat(something));\n};\n\nvar newFunction = function newFunction() {\n  var someData, resolvedData, readyData;\n  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function newFunction$(_context) {\n    while (1) {\n      switch (_context.prev = _context.next) {\n        case 0:\n          _context.next = 2;\n          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch('https://randomuser.me/api/?results=2'));\n\n        case 2:\n          someData = _context.sent;\n          _context.next = 5;\n          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(someData.json());\n\n        case 5:\n          resolvedData = _context.sent;\n          readyData = resolvedData;\n          console.log('async await function works fine;', readyData.results);\n\n        case 8:\n        case \"end\":\n          return _context.stop();\n      }\n    }\n  });\n};\n\nfunct();\nnewFunction();\nObject(_exampleScript__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nconsole.log(Object(_anotherExampleScript__WEBPACK_IMPORTED_MODULE_2__[\"anotherExternalFunction\"])());\nconsole.log(Object(_utility_fetcher__WEBPACK_IMPORTED_MODULE_4__[\"default\"])('q=szczecin').main.temp);\n\n//# sourceURL=webpack:///./src/javascript/index.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/utility/fetcher.js":
+/*!*******************************************!*\
+  !*** ./src/javascript/utility/fetcher.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _callee; });\n/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ \"./node_modules/@babel/runtime/regenerator/index.js\");\n/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _attributes_apiUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../attributes/apiUrl */ \"./src/javascript/attributes/apiUrl.js\");\n/* harmony import */ var _attributes_apiId__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../attributes/apiId */ \"./src/javascript/attributes/apiId.js\");\n\n\n\nfunction _callee(request) {\n  var apiFetch, apiJson;\n  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {\n    while (1) {\n      switch (_context.prev = _context.next) {\n        case 0:\n          _context.prev = 0;\n          _context.next = 3;\n          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch(\"\".concat(_attributes_apiUrl__WEBPACK_IMPORTED_MODULE_1__[\"default\"]).concat(request).concat(_attributes_apiId__WEBPACK_IMPORTED_MODULE_2__[\"default\"])));\n\n        case 3:\n          apiFetch = _context.sent;\n          _context.next = 6;\n          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(apiFetch.json());\n\n        case 6:\n          apiJson = _context.sent;\n          return _context.abrupt(\"return\", apiJson);\n\n        case 10:\n          _context.prev = 10;\n          _context.t0 = _context[\"catch\"](0);\n          console.log(_context.t0);\n\n        case 13:\n        case \"end\":\n          return _context.stop();\n      }\n    }\n  }, null, null, [[0, 10]]);\n} //   async byName(city, country) {\n//     try {\n//       const apiFetch = await fetch(\n//         `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${this.idKey}`\n//       );\n//       const apiJson = await apiFetch.json();\n//       return apiJson;\n//     } catch (error) {\n//       console.log(error);\n//     }\n//   }\n//   async byLocation(location) {\n//       const lat = Math.floor(location.coords.latitude);\n//       const long = Math.floor(location.coords.longitude);\n//     try {\n//       const apiFetch = await fetch(\n//         `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${this.idKey}`\n//       );\n//       const apiJson = await apiFetch.json();\n//       return apiJson;\n//     } catch (error) {\n//       console.log(error);\n//     }\n//   }\n// }\n// export default Helper;\n\n//# sourceURL=webpack:///./src/javascript/utility/fetcher.js?");
 
 /***/ }),
 
