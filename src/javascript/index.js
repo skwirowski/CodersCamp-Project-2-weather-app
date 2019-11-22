@@ -5,7 +5,7 @@ import todayByName from './utility/todayByName';
 import todayByLocalization from './utility/todayByLocalization';
 import forecastByName from './utility/forecastByName';
 import forecastByLocalization from './utility/forecastByLocalization';
-import createWeatherHTML from './actualWeather/actualWeather';
+import createWeatherHTML from './actualWeather';
 
 // const something = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
