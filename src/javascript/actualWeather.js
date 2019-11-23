@@ -1,7 +1,7 @@
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const createWeatherHTML = currentDay => {
-  console.log(currentDay)
+  console.log(currentDay);
   const actualWeather = document.getElementById('actualWeather');
   actualWeather.innerHTML = /* html */ `<h2>${currentDay.name}<h2>
   <h2>${weekDays[new Date().getDay()]}, ${date()}</h2>
@@ -13,7 +13,6 @@ const createWeatherHTML = currentDay => {
     <h3>Wind: ${currentDay.wind.speed}m/s</h3>
     <h3>Sunrise: ${time(currentDay.sys.sunrise)}</h3>
     <h3>Sunset: ${time(currentDay.sys.sunset)}</h3>`;
-
 };
 
 const date = () => {
@@ -29,9 +28,13 @@ const date = () => {
 
 const time = unix => {
   const date = new Date(unix * 1000);
-  const hours = `0${date.getHours()}`;
-  const minutes = `0${date.getMinutes()}`;
-  const formattedTime = `${hours.substr(-2)}:${minutes.substr(-2)}`;
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  const newformat = hours >= 12 ? 'pm' : 'am';
+  hours %= 12;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  const formattedTime = `${hours}:${minutes}${newformat}`;
   return formattedTime;
 };
 
