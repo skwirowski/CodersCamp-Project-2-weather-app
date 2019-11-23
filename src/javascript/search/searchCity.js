@@ -11,6 +11,7 @@ export default function search() {
     const searchInput = document.querySelector('.search');
     const suggestion = document.querySelector('.suggestions');
     searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', displayMatches);
     function displayMatches () {
         console.log(this.value);
         const matchArray = findMatches(this.value, cities);
