@@ -6,6 +6,7 @@ import todayByLocalization from './utility/todayByLocalization';
 import forecastByName from './utility/forecastByName';
 import forecastByLocalization from './utility/forecastByLocalization';
 import createWeatherHTML from './actualWeather';
+import search from './search/searchCity';
 
 // const something = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -22,7 +23,7 @@ import createWeatherHTML from './actualWeather';
 // newFunction();
 // externalFunction();
 // console.log(anotherExternalFunction());
-
+search();
 //  Pogoda na dzisiaj po nazwie miasta
 todayByName('szczecin').then(api => {
   createWeatherHTML(api);
