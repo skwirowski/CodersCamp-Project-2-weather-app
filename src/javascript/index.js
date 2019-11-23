@@ -3,10 +3,12 @@ import todayByName from './utility/todayByName';
 import todayByLocalization from './utility/todayByLocalization';
 import forecastByName from './utility/forecastByName';
 import forecastByLocalization from './utility/forecastByLocalization';
+import createWeatherHTML from './actualWeather';
 import nextHoursWeather from './nextHoursWeather';
 
 //  Pogoda na dzisiaj po nazwie miasta
 todayByName('szczecin').then(api => {
+  createWeatherHTML(api);
   console.log(`Temperatura - ${api.main.temp}`);
 });
 
