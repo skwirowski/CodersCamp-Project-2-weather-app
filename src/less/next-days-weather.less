@@ -1,0 +1,40 @@
+@import './settings.less';
+
+@default-font-size: 1.0rem;
+@medium-font-size: 1.15rem;
+@large-font-size: 1.30rem;
+
+.next-days-weather {
+  font-size: @default-font-size;
+
+  &__heading {
+    font-size: @large-font-size;
+    margin-bottom: 0.8rem;
+  }
+
+  .weather-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: @background-color-mask;
+    border-radius: 5px;
+    padding: 0.8rem 0;
+    margin-bottom: 0.3rem;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &--value {
+        font-size: @medium-font-size
+      }
+
+      &--description {
+        font-weight: @font-weight-light;
+        color: @medium-emphasis-text-color;
+      }
+    }
+  }
+}
