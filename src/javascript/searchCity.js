@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-export default function search() {
+export default function search(callback) {
   const cities = require('./static/pl.json');
   const convertArray = cities.map(city => city.city);
   const allCities = cities.length;
@@ -17,5 +17,31 @@ export default function search() {
       }
     }
   }
+
+  // After click button
+  const btnGetCity = document.querySelector('.submitCity');
+  btnGetCity.addEventListener('click', e => {
+    e.preventDefault();
+    const cityDescription = document.getElementById('getCity');
+
+    function clearDiv() {
+      const clearAll = cityDescription;
+      clearAll.innerHTML = '';
+    }
+    clearDiv();
+
+    const chooseCity = searchInput.value;
+    const addCityDiv = `
+    <h1>
+      <span class="name">Weather for ${chooseCity}</span>
+    </h1>
+  `;
+    const headingContent = document.createElement('div');
+    headingContent.innerHTML = addCityDiv;
+    cityDescription.appendChild(headingContent);
+
+    callback(chooseCity);
+  });
+
   searchInput.addEventListener('keyup', searchCity);
 }
