@@ -1,6 +1,6 @@
 import { daysNames } from './static/daysNames';
 import { getDate, getTime } from './utility/datesHelperFunctions';
-import getIconUrl from './attributes/getIconUrl'
+import getIconUrl from './attributes/getIconUrl';
 
 const showCurrentWeatherData = currentDay => {
   const actualWeather = document.getElementById('actual-weather-container');
