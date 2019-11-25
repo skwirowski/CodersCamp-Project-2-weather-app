@@ -8,6 +8,7 @@ import forecastByName from './utility/forecastByName';
 import forecastByLocalization from './utility/forecastByLocalization';
 import createWeatherHTML from './actualWeather';
 import search from './searchCity';
+import clearDiv from './clearDiv';
 
 // const something = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -29,6 +30,7 @@ search();
 const btnGetCity = document.querySelector('.submitCity');
 btnGetCity.addEventListener('click', e => {
   e.preventDefault();
+  clearDiv();
   const chooseCity = document.querySelector('.search').value;
   const addCity = document.getElementById('getCity');
   const addCityDiv = `
@@ -36,7 +38,6 @@ btnGetCity.addEventListener('click', e => {
       <span class="name">Weather for ${chooseCity}</span>
     </h1>
   `;
-
   HTMLElement = document.createElement('div');
   HTMLElement.innerHTML = addCityDiv;
   addCity.appendChild(HTMLElement);

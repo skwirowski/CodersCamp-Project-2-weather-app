@@ -1,11 +1,9 @@
 /* eslint-disable global-require */
 export default function search() {
   const cities = require('./static/pl.json');
-  console.log(cities);
   const convertArray = cities.map(city => city.city);
   const allCities = cities.length;
   console.log(convertArray);
-  console.log(allCities);
   const searchInput = document.querySelector('.search');
 
   function searchCity(event) {
