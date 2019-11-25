@@ -1,6 +1,6 @@
 import todayByLocalization from './utility/todayByLocalization';
 import forecastByLocalization from './utility/forecastByLocalization';
-import createWeatherHTML from './actualWeather';
+import showCurrentWeatherData from './actualWeather';
 import showNextHoursWeather from './nextHoursWeather';
 import showNextDaysWeatherData from './nextDaysWeather';
 
@@ -11,7 +11,7 @@ export default function() {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
 
-    todayByLocalization(lat, lon).then(api => createWeatherHTML(api));
+    todayByLocalization(lat, lon).then(api => showCurrentWeatherData(api));
 
     forecastByLocalization(lat, lon).then(api => {
       showNextHoursWeather(api);

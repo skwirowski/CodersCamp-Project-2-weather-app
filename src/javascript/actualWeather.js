@@ -1,41 +1,63 @@
-const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+import { daysNames } from './static/daysNames';
+import { getDate, getTime } from './utility/datesHelperFunctions';
+import getIconUrl from './attributes/getIconUrl';
 
-const createWeatherHTML = currentDay => {
-  console.log(currentDay);
-  const actualWeather = document.getElementById('actualWeather');
-  actualWeather.innerHTML = /* html */ `<h2>${currentDay.name}<h2>
-  <h2>${weekDays[new Date().getDay()]}, ${date()}</h2>
-		<h2>Temperature: ${currentDay.main.temp}&deg;C</h2>
-    <h2>Condition: ${currentDay.weather[0].description}</h2>
-    <img src="https://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png">
-    <h3>Pressure: ${currentDay.main.pressure}hPa</h3>
-    <h3>Humidity: ${currentDay.main.humidity}%</h3>
-    <h3>Wind: ${currentDay.wind.speed}m/s</h3>
-    <h3>Sunrise: ${time(currentDay.sys.sunrise)}</h3>
-    <h3>Sunset: ${time(currentDay.sys.sunset)}</h3>`;
+const showCurrentWeatherData = currentDay => {
+  const actualWeather = document.getElementById('actual-weather-container');
+  const cityName = currentDay.name;
+  const weekDay = daysNames[new Date().getDay()];
+  const date = getDate();
+  const icon = getIconUrl(currentDay.weather[0].icon, '@2x');
+  const temperature = `${Math.round(currentDay.main.temp)}&deg;C`;
+  const condition = currentDay.weather[0].description;
+  const rainVolume = currentDay.weather.rain ? `${currentDay.weather.rain['3h']}mm` : '-';
+  const windSpeed = `${currentDay.wind.speed}m/s`;
+  const pressure = `${currentDay.main.pressure}hPa`;
+  const humidity = `${currentDay.main.humidity}%`;
+  const sunrise = `${getTime(currentDay.sys.sunrise)}`;
+  const sunset = `${getTime(currentDay.sys.sunset)}`;
+  actualWeather.innerHTML = /* html */ `
+  <header>
+    <h2>${cityName}<h2>
+    <h3>${weekDay}, ${date}</h3>
+  </header>
+  <div class="actual-weather">
+    <div class="main-weather-data data">
+      <div class="icon">
+        <img src="${icon}">
+      </div>
+      <div class="description">
+        <p class = temperature>${temperature}</p>
+        <p class = condition>${condition}</p>
+      </div>
+    </div>
+    <div class="additional-weather-data data">
+      <div id="rain" class="conditions">
+        <p>${rainVolume}</p>
+        <p>Rain</p>
+      </div>
+      <div id="wind" class="conditions">
+        <p>${windSpeed}</p>
+        <p>Wind</p>
+      </div>
+      <div id="pressure" class="conditions">
+        <p>${pressure}</p>
+        <p>Pressure</p>
+      </div>
+      <div id="humidity" class="conditions">
+        <p>${humidity}</p>
+        <p>Humidity</p>
+      </div>
+      <div id="sunrise" class="conditions">
+        <p>${sunrise}</p>
+        <p>Sunrise</p>
+      </div>
+      <div id="sunset" class="conditions">
+        <p>${sunset}</p>
+        <p>Sunset</p>
+      </div>
+    </div>
+  </div>`;
 };
 
-const date = () => {
-  const Today = new Date();
-  const Month = Today.getMonth() + 1;
-  const Day = Today.getDate();
-  let Year = Today.getFullYear();
-  if (Year <= 99) {
-    Year += 1900;
-  }
-  return `${Day}-${Month}-${Year}`;
-};
-
-const time = unix => {
-  const date = new Date(unix * 1000);
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  const newformat = hours >= 12 ? 'pm' : 'am';
-  hours %= 12;
-  hours = hours ? hours : 12;
-  minutes = minutes < 10 ? `0${minutes}` : minutes;
-  const formattedTime = `${hours}:${minutes}${newformat}`;
-  return formattedTime;
-};
-
-export default createWeatherHTML;
+export default showCurrentWeatherData;

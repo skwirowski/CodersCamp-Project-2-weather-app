@@ -10,17 +10,17 @@
   </head>
   <body>
     <main class="main-container">
-        <button class="geolocation-btn">Show weather by geolocation</button>
+      <button class="geolocation-btn">Show weather by geolocation</button>
       <input type="text" list="datalist" class="search" />
       <datalist id="datalist">
         <option value=""></option>
       </datalist>
       <button type="button" class="submitCity">Choose</button>
-      
       <div id="getCity"></div>
-      <div id="actualWeather"></div>
+      <section id="actual-weather-container"></section>
       <section id="next-hours-weather"></section>
       <section id="next-days-forecast-region"></section>
+      <section id="airQuality"></section>
       <script src="./dist/assets/main.js" async defer></script>
     </main>
   </body>
