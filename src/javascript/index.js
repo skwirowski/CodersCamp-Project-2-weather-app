@@ -1,4 +1,3 @@
-import '../less/styles.less';
 import todayByName from './utility/todayByName';
 import todayByLocalization from './utility/todayByLocalization';
 import forecastByName from './utility/forecastByName';
@@ -7,6 +6,9 @@ import airQualityByName from './utility/airQualityByName';
 import createWeatherHTML from './actualWeather';
 import nextHoursWeather from './nextHoursWeather';
 import createAirQualityHTML from './actualAirQuality';
+import showNextDaysWeatherData from './nextDaysWeather';
+
+import '../less/styles.less';
 
 //  Pogoda na dzisiaj po nazwie miasta
 todayByName('szczecin').then(api => createWeatherHTML(api));
@@ -25,3 +27,5 @@ forecastByLocalization(15, 53).then(api =>
 );
 
 airQualityByName('szczecin').then(api => createAirQualityHTML(api));
+
+forecastByName('Szczecin').then(data => showNextDaysWeatherData(data.list));

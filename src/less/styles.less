@@ -1,8 +1,20 @@
+@import './resets.css';
 @import './settings.less';
+@import './next-days-weather.less';
 
-body {
-  background-color: @background-color;
+.main-container {
   font-family: @font-family;
   font-weight: @font-weight-regular;
-  color: @font-color-primary;
+  color: @high-emphasis-text-color;
+  line-height: 1.5;
+  background-image: linear-gradient(to bottom,
+      @background-gradient-color-1 0%,
+      @background-gradient-color-2 100%);
+  ;
+  box-sizing: border-box;
+  overflow: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
