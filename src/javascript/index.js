@@ -4,7 +4,7 @@ import airQualityByName from './utility/airQualityByName';
 import showCurrentWeatherData from './actualWeather';
 import search from './searchCity';
 import showNextHoursWeather from './nextHoursWeather';
-import createAirQualityHTML from './actualAirQuality';
+import showAirQuality from './actualAirQuality';
 import showNextDaysWeatherData from './nextDaysWeather';
 import getGeolocation from './showWeatherByGeolocation';
 
@@ -18,8 +18,9 @@ function getData(cityName) {
     showNextHoursWeather(data);
   });
 
-  airQualityByName(cityName).then(api => createAirQualityHTML(api));
+  airQualityByName('szczecin').then(api => showAirQuality(api));
 }
+
 search(getData);
 
 getGeolocation();
