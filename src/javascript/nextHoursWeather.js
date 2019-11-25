@@ -3,7 +3,7 @@ const moment = require('moment');
 export default async function getWeatherByName(api) {
   const container = document.querySelector('#nextHoursWeather-container');
   let htmlCode = '';
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i += 1) {
     htmlCode += /* html */ `
       <div class = 'nextHoursWeather-item'>
       <p>${moment(api.list[i].dt_txt).format('ha')}</p>
