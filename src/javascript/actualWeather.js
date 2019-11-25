@@ -3,12 +3,12 @@ import { getDate, getTime } from './utility/datesHelperFunctions';
 import getIconUrl from './attributes/getIconUrl'
 
 const showCurrentWeatherData = currentDay => {
-  const actualWeather = document.getElementById('actualWeather');
+  const actualWeather = document.getElementById('actual-weather-container');
   const cityName = currentDay.name;
   const weekDay = daysNames[new Date().getDay()];
   const date = getDate();
   const icon = getIconUrl(currentDay.weather[0].icon, '@2x');
-  const temperature = `${currentDay.main.temp}&deg;C`;
+  const temperature = `${Math.round(currentDay.main.temp)}&deg;C`;
   const condition = currentDay.weather[0].description;
   const rainVolume = currentDay.weather.rain ? `${currentDay.weather.rain['3h']}mm` : '-';
   const windSpeed = `${currentDay.wind.speed}m/s`;
@@ -21,35 +21,41 @@ const showCurrentWeatherData = currentDay => {
     <h2>${cityName}<h2>
     <h3>${weekDay}, ${date}</h3>
   </header>
-  <div>
-    <img src="${icon}">
-		<p>${temperature}</p>
-    <p>${condition}</p>
-  </div>
-  <div>
-    <div>
-      <p>${rainVolume}</p>
-      <p>Rain</p>
+  <div class="actual-weather">
+    <div class="main-weather-data data">
+      <div class="icon">
+        <img src="${icon}">
+      </div>
+      <div class="description">
+        <p class = temperature>${temperature}</p>
+        <p class = condition>${condition}</p>
+      </div>
     </div>
-    <div>
-      <p>${windSpeed}</p>
-      <p>Wind</p>
-    </div>
-    <div>
-      <p>${pressure}</p>
-      <p>Pressure</p>
-    </div>
-    <div>
-      <p>${humidity}</p>
-      <p>Humidity</p>
-    </div>
-    <div>
-      <p>${sunrise}</p>
-      <p>Sunrise</p>
-    </div>
-    <div>
-      <p>${sunset}</p>
-      <p>Sunset</p>
+    <div class="additional-weather-data data">
+      <div id="rain" class="conditions">
+        <p>${rainVolume}</p>
+        <p>Rain</p>
+      </div>
+      <div id="wind" class="conditions">
+        <p>${windSpeed}</p>
+        <p>Wind</p>
+      </div>
+      <div id="pressure" class="conditions">
+        <p>${pressure}</p>
+        <p>Pressure</p>
+      </div>
+      <div id="humidity" class="conditions">
+        <p>${humidity}</p>
+        <p>Humidity</p>
+      </div>
+      <div id="sunrise" class="conditions">
+        <p>${sunrise}</p>
+        <p>Sunrise</p>
+      </div>
+      <div id="sunset" class="conditions">
+        <p>${sunset}</p>
+        <p>Sunset</p>
+      </div>
     </div>
   </div>`;
 };
