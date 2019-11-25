@@ -1,5 +1,4 @@
 const createAirQualityHTML = currentDay => {
-  console.log(currentDay);
   const airQuality = document.getElementById('airQuality');
   airQuality.innerHTML = /* html */ `
     <p>${currentDay.data.city.name}<p>

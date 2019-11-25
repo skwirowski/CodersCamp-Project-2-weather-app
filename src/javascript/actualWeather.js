@@ -1,20 +1,57 @@
-import { daysNames as weekDays } from './static/daysNames';
-import { getDate as date, getTime as time } from './utility/datesHelperFunctions';
-// const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+import { daysNames } from './static/daysNames';
+import { getDate, getTime } from './utility/datesHelperFunctions';
+import getIconUrl from './attributes/getIconUrl'
 
-const createWeatherHTML = currentDay => {
+const showCurrentWeatherData = currentDay => {
   const actualWeather = document.getElementById('actualWeather');
+  const cityName = currentDay.name;
+  const weekDay = daysNames[new Date().getDay()];
+  const date = getDate();
+  const icon = getIconUrl(currentDay.weather[0].icon, '@2x');
+  const temperature = `${currentDay.main.temp}&deg;C`;
+  const condition = currentDay.weather[0].description;
+  const rainVolume = currentDay.weather.rain ? `${currentDay.weather.rain['3h']}mm` : '-';
+  const windSpeed = `${currentDay.wind.speed}m/s`;
+  const pressure = `${currentDay.main.pressure}hPa`;
+  const humidity = `${currentDay.main.humidity}%`;
+  const sunrise = `${getTime(currentDay.sys.sunrise)}`;
+  const sunset = `${getTime(currentDay.sys.sunset)}`;
   actualWeather.innerHTML = /* html */ `
-    <h3>${currentDay.name}<h3>
-    <h3>${weekDays[new Date().getDay()]}, ${date()}</h3>
-		<p>Temperature: ${currentDay.main.temp}&deg;C</p>
-    <p>Condition: ${currentDay.weather[0].description}</p>
-    <img src="https://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png">
-    <p>Pressure: ${currentDay.main.pressure}hPa</p>
-    <p>Humidity: ${currentDay.main.humidity}%</p>
-    <p>Wind: ${currentDay.wind.speed}m/s</p>
-    <p>Sunrise: ${time(currentDay.sys.sunrise)}</p>
-    <p>Sunset: ${time(currentDay.sys.sunset)}</p>`;
+  <header>
+    <h2>${cityName}<h2>
+    <h3>${weekDay}, ${date}</h3>
+  </header>
+  <div>
+    <img src="${icon}">
+		<p>${temperature}</p>
+    <p>${condition}</p>
+  </div>
+  <div>
+    <div>
+      <p>${rainVolume}</p>
+      <p>Rain</p>
+    </div>
+    <div>
+      <p>${windSpeed}</p>
+      <p>Wind</p>
+    </div>
+    <div>
+      <p>${pressure}</p>
+      <p>Pressure</p>
+    </div>
+    <div>
+      <p>${humidity}</p>
+      <p>Humidity</p>
+    </div>
+    <div>
+      <p>${sunrise}</p>
+      <p>Sunrise</p>
+    </div>
+    <div>
+      <p>${sunset}</p>
+      <p>Sunset</p>
+    </div>
+  </div>`;
 };
 
-export default createWeatherHTML;
+export default showCurrentWeatherData;
