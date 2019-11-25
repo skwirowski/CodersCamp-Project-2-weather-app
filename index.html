@@ -10,12 +10,14 @@
   </head>
   <body>
     <main class="main-container">
-      <button class="geolocation-btn">Show weather by geolocation</button>
-      <input type="text" list="datalist" class="search" />
-      <datalist id="datalist">
-        <option value=""></option>
-      </datalist>
-      <button type="button" class="submitCity">Choose</button>
+      <section id="getDatas">
+        <input type="text" list="datalist" class="search" />
+        <datalist id="datalist">
+          <option value=""></option>
+        </datalist>
+        <button type="button" class="submitCity">Choose</button>
+        <button class="geolocation-btn">Show weather by geolocation</button>
+      </section>
       <div id="getCity"></div>
       <section id="actual-weather-container"></section>
       <section id="next-hours-weather"></section>
