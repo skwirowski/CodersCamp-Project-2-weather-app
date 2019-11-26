@@ -1,0 +1,102 @@
+@import './settings.less';
+
+@default-font-size: 1.0rem;
+@medium-font-size: 1.15rem;
+@large-font-size: 1.30rem;
+
+#actual-weather-container {
+   
+  header {
+    width: 100%;
+    padding-top: 40px;
+    font-size: @medium-font-size;
+
+    h2 {
+      line-height: 110%;
+      font-size: @large-font-size*2;
+    }
+  }
+
+  .actual-weather {
+    display:flex;
+    min-height: 300px;
+    background-color: @background-color-mask;  ;
+    
+    .data {
+      flex:1;
+    }
+
+    .main-weather-data {
+      display: flex;
+
+      .icon {
+        flex:1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        img {
+          // width: 100%;
+          // height: auto;
+        }
+      }
+
+      .description {
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        .temperature {
+          font-size: @large-font-size*5;
+          line-height: 110%;
+        }
+
+        .condition {
+          font-size: @large-font-size;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    .additional-weather-data {
+      display: grid;
+      grid-template-areas:
+        "rain pressure sunrise"
+        "wind humidity sunset";
+      font-size: @medium-font-size;
+      
+        .conditions{
+          justify-self: center;
+          align-self: center;
+          text-align: center;
+        }
+
+        #rain {
+          grid-area: rain;
+        }
+
+        #wind {
+          grid-area: wind;
+        }
+
+        #pressure {
+          grid-area: pressure;
+        }
+
+        #humidity {
+          grid-area: humidity;
+        }
+
+        #sunrise {
+          grid-area: sunrise;
+        }
+
+        #sunset {
+          grid-area: sunset;
+        }
+    }
+  }
+}

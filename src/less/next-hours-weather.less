@@ -1,0 +1,42 @@
+@import './settings.less';
+
+@default-font-size: 1rem;
+@medium-font-size: 1.15rem;
+@large-font-size: 1.3rem;
+
+.next-hours-weather-h {
+    font-size: @large-font-size;
+    margin-bottom: 0.8rem;
+}
+
+.next-hours-weather-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
+
+.next-hours-weather-item {
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  background-color: @background-color-mask;
+  border-radius: 5px;
+  padding: 0.8rem 0;
+  margin-bottom: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.next-hours-weather-time {
+    font-size: @large-font-size;
+}
+
+.next-hours-weather-temp {
+    font-size: @medium-font-size;
+}
+
+.next-hours-weather-img{
+    max-width:100px;
+    width:100%;
+}
