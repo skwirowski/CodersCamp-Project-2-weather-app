@@ -33,8 +33,26 @@
         font-weight: @font-weight-light;
         color: @medium-emphasis-text-color;
       }
+
+      &--medium {
+        display: none;
+      }
     }
   }
 }
 
-@media @breakpoint-small {}
+@media @breakpoint-small {
+  .next-days-weather {
+    .weather-row {
+      &__item {
+        &--small {
+          display: none;
+        }
+
+        &--medium {
+          display: inline;
+        }
+      }
+    }
+  }
+}

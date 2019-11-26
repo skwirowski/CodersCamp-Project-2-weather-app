@@ -18152,7 +18152,8 @@ function showNextDaysWeatherData(weatherDataArray) {
     var icon = weather.weather[0].icon;
     var temp = weather.main.temp;
     var speed = weather.wind.speed;
-    var dayOfWeek = datesHelperFunctions_getDayOfWeekShort(dt);
+    var dayOfWeek = datesHelperFunctions_getDayOfWeek(dt);
+    var dayOfWeekShort = datesHelperFunctions_getDayOfWeekShort(dt);
     var dayOfMonth = getDayOfMonth(dt);
     var month = getMonth(dt);
     var iconUrl = getIconUrl(icon, '@2x');
@@ -18160,7 +18161,7 @@ function showNextDaysWeatherData(weatherDataArray) {
     var rainVolume = weather.rain ? "".concat(weather.rain['3h'], "mm") : '-';
     return (
       /* html */
-      "\n            <div class='weather-row'>\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value'>".concat(dayOfWeek, "</span>\n                <span class='weather-row__item--description'>").concat(dayOfMonth, "/").concat(month, "</span>\n              </div>\n              <img\n                class='weather-row__icon'\n                src=").concat(iconUrl, "\n                alt='weather icon'\n              >\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value'>").concat(temperature, "</span>\n                <span class='weather-row__item--description'>Temp</span>\n              </div>\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value'>").concat(speed, "m/s</span>\n                <span class='weather-row__item--description'>Wind</span>\n              </div>\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value'>").concat(rainVolume, "</span>\n                <span class='weather-row__item--description'>Rain</span>\n              </div>\n            </div>\n          ")
+      "\n            <div class='weather-row'>\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value weather-row__item--medium'>".concat(dayOfWeek, "</span>\n                <span class='weather-row__item--value weather-row__item--small'>").concat(dayOfWeekShort, "</span>\n                <span class='weather-row__item--description'>").concat(dayOfMonth, "/").concat(month, "</span>\n              </div>\n              <img\n                class='weather-row__icon'\n                src=").concat(iconUrl, "\n                alt='weather icon'\n              >\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value'>").concat(temperature, "</span>\n                <span class='weather-row__item--description'>Temp</span>\n              </div>\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value'>").concat(speed, "m/s</span>\n                <span class='weather-row__item--description'>Wind</span>\n              </div>\n              <div class='weather-row__item'>\n                <span class='weather-row__item--value'>").concat(rainVolume, "</span>\n                <span class='weather-row__item--description'>Rain</span>\n              </div>\n            </div>\n          ")
     );
   }).join(''), "\n    </div>\n  ");
   nextDaysForecastRegion.innerHTML = nextDaysWeatherTemplate;
