@@ -3,6 +3,8 @@ import forecastByLocalization from './utility/forecastByLocalization';
 import showCurrentWeatherData from './actualWeather';
 import showNextHoursWeather from './nextHoursWeather';
 import showNextDaysWeatherData from './nextDaysWeather';
+import airQualityByLocalization from './utility/airQualityByLocalization';
+import showAirQuality from './actualAirQuality';
 
 export default function() {
   const geolocationBtn = document.querySelector('.geolocation-btn');
@@ -12,6 +14,7 @@ export default function() {
     const lon = position.coords.longitude;
 
     todayByLocalization(lat, lon).then(api => showCurrentWeatherData(api));
+    airQualityByLocalization(lat, lon).then(api => showAirQuality(api));
 
     forecastByLocalization(lat, lon).then(api => {
       showNextHoursWeather(api);
