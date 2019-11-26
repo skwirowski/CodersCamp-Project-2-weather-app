@@ -11,6 +11,9 @@ Use to manually rebuild JavaScript files via Webpack module bundler.
 ## `npm start`
 Use to start development server. Server will auto reload browser after detecting change of JavaScript file.
 
+## `npm run watch`
+Use to run Webpack bundler in `--watch` mode. It will rebuild JavaScript files automatically after every change in `js` files.
+
 # Project initial setup
 ## Webpack content:
 1. Babel transpiler (with async/await),
