@@ -18,11 +18,6 @@ function getData(cityName) {
   todayByName(cityName).then(api => showCurrentWeatherData(api));
   airQualityByName(cityName).then(api => showAirQuality(api));
 }
-<<<<<<< HEAD
-=======
-
-search(getData);
->>>>>>> 82900ec7fcbdd7b80607434d86b3245397debe2f
 
 search(getData);
 getGeolocation();
