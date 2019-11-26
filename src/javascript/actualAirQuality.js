@@ -1,6 +1,5 @@
 const showAirQuality = currentDay => {
   const airQuality = document.getElementById('aqi');
-  console.log(currentDay);
   // const cityName = currentDay.data.city.name;
   // eslint-disable-next-line prettier/prettier
   let {aqi} = currentDay.data;
