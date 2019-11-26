@@ -1,8 +1,8 @@
 const showAirQuality = currentDay => {
-  const airQuality = document.getElementById('air-quality-container');
+  const airQuality = document.getElementById('aqi');
   // const cityName = currentDay.data.city.name;
   // eslint-disable-next-line prettier/prettier
-  const {aqi} = currentDay.data;
+  let {aqi} = currentDay.data;
   let color;
   let pollutionLevel;
   if (aqi > 0 && aqi <= 50) {
@@ -23,17 +23,19 @@ const showAirQuality = currentDay => {
   } else if (aqi > 300) {
     color = 'purple';
     pollutionLevel = 'Hazardous';
+  } else {
+    color = 'none';
+    pollutionLevel = 'No Data Available';
+    aqi = '-';
   }
-  if (aqi) {
-    airQuality.innerHTML = /* html */ `
-    <div class="air-quality">
-      <p>Air Quality<p>
-      <div id="aqi-quality" class=${color}>
-        <p>${aqi}</p>
-      </div>
-      <p>${pollutionLevel}<p>
-    </div>`;
-  }
+  airQuality.innerHTML = /* html */ `
+  <div class="air-quality">
+    <p>Air Quality<p>
+    <div id="aqi-quality" class=${color}>
+      <p>${aqi}</p>
+    </div>
+    <p>${pollutionLevel}<p>
+  </div>`;
   // https://aqicn.org/data-platform/token/#/ - About the Air Quality Levels
 };
 

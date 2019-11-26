@@ -11,15 +11,13 @@ import getGeolocation from './showWeatherByGeolocation';
 import '../less/styles.less';
 
 function getData(cityName) {
-
   forecastByName(cityName).then(data => {
     showNextDaysWeatherData(data.list);
     showNextHoursWeather(data);
   });
-
+  todayByName(cityName).then(api => showCurrentWeatherData(api));
+  airQualityByName(cityName).then(api => showAirQuality(api));
 }
-todayByName('szczecin').then(api => showCurrentWeatherData(api));
-airQualityByName('szczecin').then(api => showAirQuality(api));
 
 search(getData);
 
