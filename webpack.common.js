@@ -29,12 +29,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Production',
-    }),
-  ],
+  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
   output: {
     filename: '[name].bundle.js',
     path: resolve(__dirname, 'dist'),

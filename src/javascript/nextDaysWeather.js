@@ -1,4 +1,4 @@
-import { getDayOfWeek, getDayOfWeekShort, getDayOfMonth, getMonth } from './utility/datesHelperFunctions';
+import { getDayOfWeekShort, getDayOfMonth, getMonth } from './utility/datesHelperFunctions';
 import {
   createWeatherDataArrayThatStartsFromTomorrow,
   getEveryNthArrayElement,
@@ -23,7 +23,7 @@ export default function showNextDaysWeatherData(weatherDataArray) {
           const { temp } = weather.main;
           const { speed } = weather.wind;
 
-          const dayOfWeek = getDayOfWeek(dt);
+          const dayOfWeek = getDayOfWeekShort(dt);
           const dayOfMonth = getDayOfMonth(dt);
           const month = getMonth(dt);
           const iconUrl = getIconUrl(icon, '@2x');
