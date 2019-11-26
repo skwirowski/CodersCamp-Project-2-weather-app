@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -23,9 +24,12 @@ module.exports = merge(common, {
       },
     ],
   },
+  optimization: {
+    minimizer: [new OptimizeCSSAssetsPlugin({})],
+  },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].bundle.css',
     }),
   ],
 });
