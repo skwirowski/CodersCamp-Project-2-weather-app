@@ -1,12 +1,12 @@
 // eslint-disable-next-line prefer-destructuring
-const resolve = require('path').resolve;
+const path = require('path');
 
 module.exports = {
   mode: 'development',
   entry: './src/javascript/index.js',
   output: {
-    path: resolve('dist'),
     filename: 'main.js',
+    path: path.join(__dirname, 'dist'),
     publicPath: '/dist/assets',
   },
   module: {

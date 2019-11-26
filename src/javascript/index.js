@@ -28,3 +28,5 @@ forecastByLocalization(15, 53).then(api =>
 );
 
 forecastByName('Szczecin').then(data => showNextDaysWeatherData(data.list));
+
+console.log('something another something');
