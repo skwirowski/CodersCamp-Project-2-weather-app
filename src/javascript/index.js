@@ -4,22 +4,25 @@ import airQualityByName from './utility/airQualityByName';
 import showCurrentWeatherData from './actualWeather';
 import search from './searchCity';
 import showNextHoursWeather from './nextHoursWeather';
-import createAirQualityHTML from './actualAirQuality';
+import showAirQuality from './actualAirQuality';
 import showNextDaysWeatherData from './nextDaysWeather';
 import getGeolocation from './showWeatherByGeolocation';
 
 import '../less/styles.less';
 
 function getData(cityName) {
-  todayByName(cityName).then(api => showCurrentWeatherData(api));
-
   forecastByName(cityName).then(data => {
     showNextDaysWeatherData(data.list);
     showNextHoursWeather(data);
   });
-
-  airQualityByName(cityName).then(api => createAirQualityHTML(api));
+  todayByName(cityName).then(api => showCurrentWeatherData(api));
+  airQualityByName(cityName).then(api => showAirQuality(api));
 }
+<<<<<<< HEAD
+=======
+
+search(getData);
+>>>>>>> 82900ec7fcbdd7b80607434d86b3245397debe2f
 
 search(getData);
 getGeolocation();

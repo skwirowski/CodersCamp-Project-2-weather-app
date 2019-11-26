@@ -1,6 +1,7 @@
-const id = '49d149e6213feff8e7860aafa5c74ace81b9c630';
-const url = 'https://api.waqi.info/';
+import { AqiId as id } from '../attributes/apiId';
+import { AqiUrl as url } from '../attributes/apiUrl';
 
+// eslint-disable-next-line consistent-return
 export default async function(city) {
   try {
     const apiFetch = await fetch(`${url}feed/${city}/?token=${id}`);
