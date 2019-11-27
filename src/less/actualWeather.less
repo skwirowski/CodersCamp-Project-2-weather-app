@@ -5,11 +5,21 @@
   header {
     width: 100%;
     padding-top: 20px;
-    font-size: @medium-font-size;
 
     h2 {
       line-height: 110%;
       font-size: @large-font-size*2;
+    }
+    
+    h3 {
+      span {
+        font-weight: @font-weight-bold;
+      }
+    }
+
+    p {
+      font-weight: @font-weight-light;
+      font-size: @medium-font-size;
     }
   }
 
@@ -54,6 +64,7 @@
 
         .condition {
           font-size: @medium-font-size;
+          font-weight: @font-weight-light;
           text-transform: capitalize;
         }
       }
@@ -74,6 +85,7 @@
         
           p:nth-child(2) {
           font-size: @default-font-size*0.8;
+          font-weight: @font-weight-light;
         }
       }
 
@@ -112,6 +124,10 @@
   
       h2 {
         font-size: @large-font-size*3;
+      }
+      
+      h3 {
+        font-size: @medium-font-size;
       }
     }
   
