@@ -372,9 +372,9 @@ input[type="radio"] {
   /* 1 */
   padding: 0;
   /* 2 */
-  *height: 13px;
+  height: 13px;
   /* 3 */
-  *width: 13px;
+  width: 13px;
   /* 3 */
 }
 

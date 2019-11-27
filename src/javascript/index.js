@@ -1,23 +1,38 @@
 import todayByName from './utility/todayByName';
 import forecastByName from './utility/forecastByName';
 import airQualityByName from './utility/airQualityByName';
+import airQualityByLocalization from './utility/airQualityByLocalization';
 import showCurrentWeatherData from './actualWeather';
 import search from './searchCity';
 import showNextHoursWeather from './nextHoursWeather';
-import showAirQuality from './actualAirQuality';
+import createAirQualityHTML from './actualAirQuality';
 import showNextDaysWeatherData from './nextDaysWeather';
 import getGeolocation from './showWeatherByGeolocation';
+import todayByLocalization from './utility/todayByLocalization';
+import forecastByLocalization from './utility/forecastByLocalization';
 
 import '../less/styles.less';
 
-function getData(cityName) {
+function getDataByName(cityName) {
+  todayByName(cityName).then(api => showCurrentWeatherData(api));
+
   forecastByName(cityName).then(data => {
     showNextDaysWeatherData(data.list);
     showNextHoursWeather(data);
   });
-  todayByName(cityName).then(api => showCurrentWeatherData(api));
-  airQualityByName(cityName).then(api => showAirQuality(api));
+
+  airQualityByName(cityName).then(api => createAirQualityHTML(api));
+}
+function getDataByLocation(lat, lon) {
+  todayByLocalization(lat, lon).then(api => showCurrentWeatherData(api));
+
+  forecastByLocalization(lat, lon).then(api => {
+    showNextHoursWeather(api);
+    showNextDaysWeatherData(api.list);
+  });
+
+  airQualityByLocalization(lat, lon).then(api => createAirQualityHTML(api));
 }
 
-search(getData);
-getGeolocation();
+search(getDataByName);
+getGeolocation(getDataByLocation);

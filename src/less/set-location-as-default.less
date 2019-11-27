@@ -1,0 +1,49 @@
+@import './settings.less';
+
+@default-location-margin: 30px;
+
+.save-location-as-default {
+  text-align: center;
+  margin: @default-location-margin auto;
+
+  input[type=checkbox].save-location-as-default__checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  input[type=checkbox].save-location-as-default__checkbox+label.save-location-as-default__label {
+    padding-left: 30px;
+    height: 25px;
+    display: inline-block;
+    line-height: 25px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: @large-font-size;
+    vertical-align: middle;
+    cursor: pointer;
+
+  }
+
+  input[type=checkbox].save-location-as-default__checkbox:checked+label.save-location-as-default__label {
+    background-position: 0 -25px;
+  }
+
+  label.save-location-as-default__label {
+    background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_391ce065f36b1460c4845fa9b5173fba.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+}
