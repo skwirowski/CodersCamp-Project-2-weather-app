@@ -1,11 +1,7 @@
 @import './settings.less';
 
-@default-font-size: 1.0rem;
-@medium-font-size: 1.15rem;
-@large-font-size: 1.30rem;
-
 #actual-weather-container {
-   
+
   header {
     width: 100%;
     padding-top: 40px;
@@ -21,7 +17,7 @@
     display:flex;
     min-height: 300px;
     background-color: @background-color-mask;  ;
-    
+
     .data {
       flex:1;
     }
@@ -32,13 +28,13 @@
       .icon {
         flex:1;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
-
         img {
-          // width: 100%;
-          // height: auto;
+          width:auto;
+          justify-self: center;
         }
       }
 
@@ -67,7 +63,7 @@
         "rain pressure sunrise"
         "wind humidity sunset";
       font-size: @medium-font-size;
-      
+
         .conditions{
           justify-self: center;
           align-self: center;

@@ -25,6 +25,7 @@ const showCurrentWeatherData = currentDay => {
     <div class="main-weather-data data">
       <div class="icon">
         <img src="${icon}">
+        <div id="aqi"></div>
       </div>
       <div class="description">
         <p class = temperature>${temperature}</p>

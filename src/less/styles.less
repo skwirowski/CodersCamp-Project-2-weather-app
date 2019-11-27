@@ -3,20 +3,42 @@
 @import './next-days-weather.less';
 @import './next-hours-weather.less';
 @import './actualWeather.less';
+@import './actualAirQuality.less';
+@import './input-buttons.less';
 
 .main-container {
-  font-family: @font-family;
-  font-weight: @font-weight-regular;
-  color: @high-emphasis-text-color;
-  line-height: 1.5;
   background-image: linear-gradient(to bottom,
       @background-gradient-color-1 0%,
       @background-gradient-color-2 100%);
   ;
+}
+
+.main-wrapper {
+  font-family: @font-family;
+  font-weight: @font-weight-regular;
+  color: @high-emphasis-text-color;
+  line-height: 1.5;
   box-sizing: border-box;
   overflow: auto;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  min-height: 100vh;
+
+  @media @breakpoint-small {
+    max-width: @bp-small;
+  }
+
+  @media @breakpoint-medium {
+    max-width: @bp-medium;
+  }
+
+  @media @breakpoint-large {
+    max-width: @bp-large;
+  }
+
+  @media @breakpoint-extra-large {
+    max-width: @bp-extra-large;
+  }
 }

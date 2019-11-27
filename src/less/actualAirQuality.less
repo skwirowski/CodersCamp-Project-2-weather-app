@@ -1,0 +1,54 @@
+@import './settings.less';
+
+.green {
+  background-color: #009966;
+}
+
+.yellow {
+  background-color: #FFDE33;
+}
+
+.orange {
+  background-color: #FF9933;
+}
+
+.red {
+  background-color: #CC0033;
+}
+
+.violet {
+  background-color: #660099;
+}
+
+.purple {
+  background-color: #7E0023;
+}
+
+.none {
+  background-color: @background-color-mask;
+}
+
+  #aqi {
+
+    .air-quality {
+      width: 100px;
+      min-height: 100px;
+      max-height: 130px;
+      font-size: @default-font-size*0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        text-align: center;
+      }
+
+      #aqi-quality {
+        width: 80%;
+        padding: 5px;
+        font-size: @large-font-size*2;
+        border-radius: 5px;
+        font-weight: @font-weight-bold;
+      }
+    }
+  }
