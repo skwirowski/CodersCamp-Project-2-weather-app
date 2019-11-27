@@ -15,10 +15,9 @@ function getData(cityName) {
     showNextDaysWeatherData(data.list);
     showNextHoursWeather(data);
   });
-  
+  todayByName(cityName).then(api => showCurrentWeatherData(api));
+  airQualityByName(cityName).then(api => showAirQuality(api));
 }
 
 search(getData);
 getGeolocation();
-todayByName(cityName).then(api => showCurrentWeatherData(api));
-  airQualityByName(cityName).then(api => showAirQuality(api));
