@@ -22,6 +22,13 @@ module.exports = merge(common, {
           },
         ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          publicPath: './',
+        },
+      },
     ],
   },
   optimization: {
