@@ -1,25 +1,10 @@
-import todayByLocalization from './utility/todayByLocalization';
-import forecastByLocalization from './utility/forecastByLocalization';
-import showCurrentWeatherData from './actualWeather';
-import showNextHoursWeather from './nextHoursWeather';
-import showNextDaysWeatherData from './nextDaysWeather';
-import airQualityByLocalization from './utility/airQualityByLocalization';
-import showAirQuality from './actualAirQuality';
-
-export default function() {
+export default function(callback) {
   const geolocationBtn = document.querySelector('.geolocation-btn');
 
   function showWeatherByGeolocation(position) {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
+    const { latitude: lat, longitude: lon } = position.coords;
 
-    todayByLocalization(lat, lon).then(api => showCurrentWeatherData(api));
-    airQualityByLocalization(lat, lon).then(api => showAirQuality(api));
-
-    forecastByLocalization(lat, lon).then(api => {
-      showNextHoursWeather(api);
-      showNextDaysWeatherData(api.list);
-    });
+    callback(lat, lon);
   }
 
   function getLocation() {
