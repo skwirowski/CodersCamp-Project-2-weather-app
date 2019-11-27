@@ -1,8 +1,8 @@
 @import './settings.less';
 
 .next-hours-weather-h {
-    font-size: @large-font-size;
-    margin-bottom: 0.8rem;
+  font-size: @large-font-size;
+  margin-bottom: 0.8rem;
 }
 
 .next-hours-weather-container {
@@ -21,18 +21,48 @@
   margin-bottom: 0.8rem;
   display: flex;
   flex-direction: column;
-  
+}
+
+.next-hours-weather-item:nth-last-child(1),
+.next-hours-weather-item:nth-last-child(2),
+.next-hours-weather-item:nth-last-child(3),
+.next-hours-weather-item:nth-last-child(4) {
+  display: none;
 }
 
 .next-hours-weather-time {
-    font-size: @large-font-size;
+  font-size: @large-font-size;
 }
 
 .next-hours-weather-temp {
-    font-size: @medium-font-size;
+  font-size: @medium-font-size;
 }
 
-.next-hours-weather-img{
-    max-width:100px;
-    width:100%;
+.next-hours-weather-img {
+  max-width: 100px;
+  width: 100%;
+}
+
+@media @breakpoint-small {
+  .next-hours-weather-item:nth-last-child(4) {
+    display: flex;
+  }
+}
+
+@media @breakpoint-medium {
+  .next-hours-weather-item:nth-last-child(3) {
+    display: flex;
+  }
+}
+
+@media @breakpoint-large {
+  .next-hours-weather-item:nth-last-child(2) {
+    display: flex;
+  }
+}
+
+@media @breakpoint-extra-large {
+  .next-hours-weather-item:nth-last-child(1) {
+    display: flex;
+  }
 }
