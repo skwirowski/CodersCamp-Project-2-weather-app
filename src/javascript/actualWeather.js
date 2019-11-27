@@ -1,5 +1,5 @@
 import { daysNames } from './static/daysNames';
-import { getDate, getTime } from './utility/datesHelperFunctions';
+import { getDate, getTime, daysToNextYear as days } from './utility/datesHelperFunctions';
 import getIconUrl from './attributes/getIconUrl';
 
 const showCurrentWeatherData = currentDay => {
@@ -7,6 +7,7 @@ const showCurrentWeatherData = currentDay => {
   const cityName = currentDay.name;
   const weekDay = daysNames[new Date().getDay()];
   const date = getDate();
+  const daysToNextYear = days();
   const icon = getIconUrl(currentDay.weather[0].icon, '@2x');
   const temperature = `${Math.round(currentDay.main.temp)}&deg;C`;
   const condition = currentDay.weather[0].description;
@@ -19,7 +20,8 @@ const showCurrentWeatherData = currentDay => {
   actualWeather.innerHTML = /* html */ `
   <header>
     <h2>${cityName}<h2>
-    <h3>${weekDay}, ${date}</h3>
+    <h3><span>${weekDay}</span>, ${date}</h3>
+    <p>${daysToNextYear}</p>
   </header>
   <div class="actual-weather">
     <div class="main-weather-data data">
