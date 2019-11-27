@@ -4,7 +4,7 @@
 
   header {
     width: 100%;
-    padding-top: 40px;
+    padding-top: 20px;
     font-size: @medium-font-size;
 
     h2 {
@@ -15,8 +15,8 @@
 
   .actual-weather {
     display:flex;
-    min-height: 300px;
-    background-color: @background-color-mask;  ;
+    flex-direction: column;
+    background-color: @background-color-mask;
 
     .data {
       flex:1;
@@ -24,6 +24,7 @@
 
     .main-weather-data {
       display: flex;
+      flex-direction: column-reverse;
 
       .icon {
         flex:1;
@@ -42,16 +43,17 @@
         flex:1;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
+        margin-top: 20px;
 
         .temperature {
-          font-size: @large-font-size*5;
-          line-height: 110%;
+          font-size: @medium-font-size*4;
+          line-height: 100%;
         }
 
         .condition {
-          font-size: @large-font-size;
+          font-size: @medium-font-size;
           text-transform: capitalize;
         }
       }
@@ -60,39 +62,44 @@
     .additional-weather-data {
       display: grid;
       grid-template-areas:
-        "rain pressure sunrise"
-        "wind humidity sunset";
-      font-size: @medium-font-size;
+        "rain wind"
+        "pressure humidity"
+        "sunrise sunset";
+      font-size: @default-font-size;
+      margin: 10px 0;
 
-        .conditions{
-          justify-self: center;
-          align-self: center;
-          text-align: center;
+      .conditions{
+        text-align: center;
+        margin: 10px auto;
+        
+          p:nth-child(2) {
+          font-size: @default-font-size*0.8;
         }
+      }
 
-        #rain {
-          grid-area: rain;
-        }
+      #rain {
+        grid-area: rain;
+      }
 
-        #wind {
-          grid-area: wind;
-        }
+      #wind {
+        grid-area: wind;
+      }
 
-        #pressure {
-          grid-area: pressure;
-        }
+      #pressure {
+        grid-area: pressure;
+      }
 
-        #humidity {
-          grid-area: humidity;
-        }
+      #humidity {
+        grid-area: humidity;
+      }
 
-        #sunrise {
-          grid-area: sunrise;
-        }
+      #sunrise {
+        grid-area: sunrise;
+      }
 
-        #sunset {
-          grid-area: sunset;
-        }
+      #sunset {
+        grid-area: sunset;
+      }
     }
   }
 }
@@ -101,48 +108,124 @@
   #actual-weather-container {
 
     header {
-      
+      font-size: @medium-font-size;
+  
       h2 {
-        line-height: 110%;
-        font-size: @medium-font-size*2;
+        font-size: @large-font-size*3;
       }
     }
   
     .actual-weather {
-      
-      .data {
-        
-      }
   
       .main-weather-data {
-        
-  
-        .icon {
-          
-          img {
-           
-          }
-        }
-  
+        display: flex;
+        flex-direction: row;  
+    
         .description {
-         
-  
+            
           .temperature {
-           
+            font-size: @large-font-size*4;
           }
   
           .condition {
-            
+            font-size: @medium-font-size;
           }
         }
       }
   
-      .additional-weather-data {
-        
+    .additional-weather-data {
+      grid-template-areas:
+        "rain pressure sunrise"
+        "wind humidity sunset";
+      font-size: @medium-font-size;
+
+        .conditions{
+
+            p:nth-child(2) {
+            font-size: @default-font-size*0.9;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media @breakpoint-medium {
+  #actual-weather-container {
+
+    header {
+      font-size: @large-font-size;
   
-          .conditions{
+      h2 {
+        font-size: @large-font-size*3;
+      }
+    }
+  
+    .actual-weather {
+  
+      .main-weather-data {
+        padding-bottom: 20px;
+           
+        .description {
             
-          }             
+          .temperature {
+            font-size: @large-font-size*5;
+          }
+  
+          .condition {
+            font-size: @large-font-size;
+          }
+        }
+      }
+  
+    .additional-weather-data {
+      font-size: @large-font-size;
+
+        .conditions {
+          margin: 20px auto;
+
+            p:nth-child(2) {
+            font-size: @medium-font-size;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media @breakpoint-large {
+
+  #actual-weather-container {
+
+    .actual-weather {
+      flex-direction: row;
+
+      .main-weather-data {
+ 
+        .description {
+          align-items: flex-start;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media @breakpoint-large {
+
+  #actual-weather-container {
+
+    .actual-weather {
+
+      .main-weather-data {
+        padding: 0;
+
+        .icon {
+          flex:2;
+          flex-direction: row;
+          justify-content: space-around;
+          margin: 0 20px;
+        }
       }
     }
   }
