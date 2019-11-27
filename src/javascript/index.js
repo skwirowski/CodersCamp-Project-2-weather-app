@@ -10,28 +10,38 @@ import showNextDaysWeatherData from './nextDaysWeather';
 import getGeolocation from './showWeatherByGeolocation';
 import todayByLocalization from './utility/todayByLocalization';
 import forecastByLocalization from './utility/forecastByLocalization';
+import openLoader from './utility/openLoader';
+import closeLoader from './utility/closeLoader';
 
 import '../less/styles.less';
 
 function getDataByName(cityName) {
-  todayByName(cityName).then(api => showCurrentWeatherData(api));
+  openLoader();
 
-  forecastByName(cityName).then(data => {
-    showNextDaysWeatherData(data.list);
-    showNextHoursWeather(data);
-  });
+  Promise.all([todayByName(cityName), forecastByName(cityName), airQualityByName(cityName)])
+    .then(response => {
+      showCurrentWeatherData(response[0]);
+      showNextDaysWeatherData(response[1].list);
+      showNextHoursWeather(response[1]);
+      createAirQualityHTML(response[2]);
 
-  airQualityByName(cityName).then(api => createAirQualityHTML(api));
+      closeLoader();
+    })
+    .catch(error => console.log(error));
 }
 function getDataByLocation(lat, lon) {
-  todayByLocalization(lat, lon).then(api => showCurrentWeatherData(api));
+  openLoader();
 
-  forecastByLocalization(lat, lon).then(api => {
-    showNextHoursWeather(api);
-    showNextDaysWeatherData(api.list);
-  });
+  Promise.all([todayByLocalization(lat, lon), forecastByLocalization(lat, lon), airQualityByLocalization(lat, lon)])
+    .then(response => {
+      showCurrentWeatherData(response[0]);
+      showNextHoursWeather(response[1]);
+      showNextDaysWeatherData(response[1].list);
+      createAirQualityHTML(response[2]);
 
-  airQualityByLocalization(lat, lon).then(api => createAirQualityHTML(api));
+      closeLoader();
+    })
+    .catch(error => console.log(error));
 }
 
 search(getDataByName);
