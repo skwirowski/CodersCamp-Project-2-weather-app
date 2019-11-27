@@ -34,8 +34,8 @@ export default function showNextDaysWeatherData(weatherDataArray) {
           return /* html */ `
             <div class='weather-row'>
               <div class='weather-row__item'>
-                <span class='weather-row__item--value weather-row__item--medium'>${dayOfWeek}</span>
-                <span class='weather-row__item--value weather-row__item--small'>${dayOfWeekShort}</span>
+                <span class='weather-row__item--value weather-row__item--value-medium'>${dayOfWeek}</span>
+                <span class='weather-row__item--value weather-row__item--value-small'>${dayOfWeekShort}</span>
                 <span class='weather-row__item--description'>${dayOfMonth}/${month}</span>
               </div>
               <img
@@ -47,11 +47,11 @@ export default function showNextDaysWeatherData(weatherDataArray) {
                 <span class='weather-row__item--value'>${temperature}</span>
                 <span class='weather-row__item--description'>Temp</span>
               </div>
-              <div class='weather-row__item'>
+              <div class='weather-row__item weather-row__item--medium'>
                 <span class='weather-row__item--value'>${speed}m/s</span>
                 <span class='weather-row__item--description'>Wind</span>
               </div>
-              <div class='weather-row__item'>
+              <div class='weather-row__item weather-row__item--medium'>
                 <span class='weather-row__item--value'>${rainVolume}</span>
                 <span class='weather-row__item--description'>Rain</span>
               </div>
