@@ -1,6 +1,7 @@
 import todayByName from './utility/todayByName';
 import forecastByName from './utility/forecastByName';
 import airQualityByName from './utility/airQualityByName';
+import airQualityByLocalization from './utility/airQualityByLocalization';
 import showCurrentWeatherData from './actualWeather';
 import search from './searchCity';
 import showNextHoursWeather from './nextHoursWeather';
@@ -29,6 +30,8 @@ function getDataByLocation(lat, lon) {
     showNextHoursWeather(api);
     showNextDaysWeatherData(api.list);
   });
+
+  airQualityByLocalization(lat, lon).then(api => createAirQualityHTML(api));
 }
 
 search(getDataByName);

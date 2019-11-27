@@ -1,9 +1,5 @@
 @import './settings.less';
 
-@default-font-size: 1.0rem;
-@medium-font-size: 1.15rem;
-@large-font-size: 1.30rem;
-
 .next-days-weather {
   font-size: @default-font-size;
 
@@ -14,11 +10,12 @@
 
   .weather-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-color: @background-color-mask;
     border-radius: 5px;
-    padding: 0.8rem 0;
+    padding: 0.8rem 0.8rem;
     margin-bottom: 0.3rem;
 
     &__item {
@@ -26,14 +23,35 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 20%;
 
       &--value {
-        font-size: @medium-font-size
+        font-size: @medium-font-size;
       }
 
       &--description {
         font-weight: @font-weight-light;
         color: @medium-emphasis-text-color;
+      }
+
+      &--medium {
+        display: none;
+      }
+    }
+  }
+}
+
+@media @breakpoint-small {
+  .next-days-weather {
+    .weather-row {
+      &__item {
+        &--small {
+          display: none;
+        }
+
+        &--medium {
+          display: inline;
+        }
       }
     }
   }

@@ -24,6 +24,7 @@ export default function showNextDaysWeatherData(weatherDataArray) {
           const { speed } = weather.wind;
 
           const dayOfWeek = getDayOfWeek(dt);
+          const dayOfWeekShort = getDayOfWeekShort(dt);
           const dayOfMonth = getDayOfMonth(dt);
           const month = getMonth(dt);
           const iconUrl = getIconUrl(icon, '@2x');
@@ -33,7 +34,8 @@ export default function showNextDaysWeatherData(weatherDataArray) {
           return /* html */ `
             <div class='weather-row'>
               <div class='weather-row__item'>
-                <span class='weather-row__item--value'>${dayOfWeek}</span>
+                <span class='weather-row__item--value weather-row__item--medium'>${dayOfWeek}</span>
+                <span class='weather-row__item--value weather-row__item--small'>${dayOfWeekShort}</span>
                 <span class='weather-row__item--description'>${dayOfMonth}/${month}</span>
               </div>
               <img

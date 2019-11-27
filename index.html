@@ -6,22 +6,29 @@
     <title>Weather Application</title>
     <meta name="description" content="Weather Application" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <!-- production stylesheet file -->
+    <!-- <link href="./dist/main.bundle.css" rel="stylesheet"> -->
   </head>
-  <body>
-    <main class="main-container">
-      <button class="geolocation-btn">Show weather by geolocation</button>
-      <input type="text" list="datalist" class="search" />
-      <datalist id="datalist">
-        <option value=""></option>
-      </datalist>
-      <button type="button" class="submitCity">Choose</button>
+  <body class="main-container">
+    <main class="main-wrapper">
+      <section id="getDatas">
+        <input type="text" list="datalist" class="search" />
+        <datalist id="datalist">
+          <option value=""></option>
+        </datalist>
+        <button type="button" class="submitCity">Choose</button>
+        <button class="geolocation-btn">Show weather by geolocation</button>
+      </section>
       <div id="getCity"></div>
       <section id="actual-weather-container"></section>
       <section id="next-hours-weather"></section>
       <section id="next-days-forecast-region"></section>
-      <section id="airQuality"></section>
-      <script src="./dist/assets/main.js" async defer></script>
+      <section id="air-quality-container"></section>
     </main>
+    <!-- development source file -->
+    <script src="./dist/assets/main.bundle.js"></script>
+
+    <!-- production source file -->
+    <!-- <script src="./dist/main.bundle.js"></script> -->
   </body>
 </html>
