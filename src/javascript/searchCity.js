@@ -1,10 +1,26 @@
 /* eslint-disable global-require */
+import saveToLocalStorage from './utility/saveToLocalStorage';
+import loadFromLocalStorage from './utility/loadFromLocalStorage';
+
 export default function search(callback) {
   const cities = require('./static/pl.json');
-  const convertArray = cities.map(city => city.city);
   const allCities = cities.length;
-  console.log(convertArray);
+
+  const convertArray = cities.map(city => city.city);
   const searchInput = document.querySelector('.search');
+  const btnGetCity = document.querySelector('.submitCity');
+  const cityDescription = document.getElementById('getCity');
+  const setDefaultLocationCheckbox = document.querySelector('#save-location-as-default-checkbox');
+
+  const localStorageDataName = 'userDefaultLocation';
+  const localStorageData = loadFromLocalStorage(localStorageDataName);
+
+  function checkForDefaultLocationInLocalStorage() {
+    if (localStorageData) {
+      callback(localStorageData);
+    }
+  }
+  checkForDefaultLocationInLocalStorage();
 
   function searchCity(event) {
     document.getElementById('datalist').innerHTML = '';
@@ -19,10 +35,8 @@ export default function search(callback) {
   }
 
   // After click button
-  const btnGetCity = document.querySelector('.submitCity');
   btnGetCity.addEventListener('click', e => {
     e.preventDefault();
-    const cityDescription = document.getElementById('getCity');
 
     function clearDiv() {
       const clearAll = cityDescription;
@@ -41,6 +55,13 @@ export default function search(callback) {
     cityDescription.appendChild(headingContent);
 
     callback(chooseCity);
+
+    function saveDefaultLocationToLocalStorage() {
+      if (setDefaultLocationCheckbox.checked) {
+        saveToLocalStorage(localStorageDataName, chooseCity);
+      }
+    }
+    saveDefaultLocationToLocalStorage();
   });
 
   searchInput.addEventListener('keyup', searchCity);

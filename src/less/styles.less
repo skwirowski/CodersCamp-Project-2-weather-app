@@ -5,6 +5,8 @@
 @import './actualWeather.less';
 @import './actualAirQuality.less';
 @import './input-buttons.less';
+@import './set-location-as-default.less';
+@import './fetch-loader.less';
 
 .main-container {
   background-image: linear-gradient(to bottom,
@@ -14,15 +16,17 @@
 }
 
 .main-wrapper {
+  position: relative;
   font-family: @font-family;
   font-weight: @font-weight-regular;
   color: @high-emphasis-text-color;
   line-height: 1.5;
   box-sizing: border-box;
-  overflow: auto;
   padding-right: 15px;
   padding-left: 15px;
+  margin-top: 30px;
   margin-right: auto;
+  margin-bottom: 30px;
   margin-left: auto;
   min-height: 100vh;
 

@@ -10,6 +10,7 @@
     <!-- <link href="./dist/main.bundle.css" rel="stylesheet"> -->
   </head>
   <body class="main-container">
+    <div id="data-fetch-loader-region"></div>
     <main class="main-wrapper">
       <section id="getDatas">
         <input type="text" list="datalist" class="search" />
@@ -18,6 +19,13 @@
         </datalist>
         <button type="button" class="submitCity">Choose</button>
         <button class="geolocation-btn">Show weather by geolocation</button>
+      </section>
+      <section class="save-location-as-default">
+        <input id="save-location-as-default-checkbox" class="save-location-as-default__checkbox" type="checkbox"
+        name="save-location-as-default" value="save-location-as-default">
+        <label for="save-location-as-default-checkbox" class="save-location-as-default__label">
+          Set this location as default?
+        </label>
       </section>
       <div id="getCity"></div>
       <section id="actual-weather-container"></section>

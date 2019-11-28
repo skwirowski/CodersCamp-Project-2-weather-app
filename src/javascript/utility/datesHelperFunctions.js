@@ -44,3 +44,11 @@ export const getTime = unix => {
   const formattedTime = `${hours}:${minutes}${newformat}`;
   return formattedTime;
 };
+
+export const daysToNextYear = () => {
+  const today = new Date();
+  const nextYear = new Date(today.getFullYear() + 1, 0, 1);
+  const oneDay = 1000 * 60 * 60 * 24;
+  const days = `${Math.ceil((nextYear.getTime() - today.getTime()) / oneDay)} days left until next year!`;
+  return days;
+}
