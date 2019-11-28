@@ -6,7 +6,7 @@ export default function(api) {
   const container = document.querySelector('#next-hours-weather');
   let htmlCode = '';
   // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 7; i++) {
     htmlCode += /* html */ `
       <div class = 'next-hours-weather-item'>
       <span class="next-hours-weather-time">${moment(api.list[i].dt_txt).format('ha')}</span>
