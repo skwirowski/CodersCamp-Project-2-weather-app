@@ -45,6 +45,9 @@ export default function search(callback) {
     clearDiv();
 
     const chooseCity = searchInput.value;
+    // if(chooseCity = '') {
+    //   console.log('nie ma tego');
+    // }
     const addCityDiv = `
     <h1>
       <span class="name">Weather for ${chooseCity}</span>
