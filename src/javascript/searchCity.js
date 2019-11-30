@@ -41,6 +41,7 @@ export default function search(callback) {
     function clearDiv() {
       const clearAll = cityDescription;
       clearAll.innerHTML = '';
+
     }
     clearDiv();
     const chooseCity = searchInput.value;
@@ -54,15 +55,6 @@ export default function search(callback) {
       textContent.innerHTML = addCityValidate;
       cityDescription.appendChild(textContent);
     } else {
-      const addCityDiv = `
-    <h1>
-      <span class="name">Weather for ${chooseCity}</span>
-    </h1>
-  `;
-      const headingContent = document.createElement('div');
-      headingContent.innerHTML = addCityDiv;
-      cityDescription.appendChild(headingContent);
-
       callback(chooseCity);
     }
 
