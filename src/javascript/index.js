@@ -10,8 +10,8 @@ import showNextDaysWeatherData from './nextDaysWeather';
 import getGeolocation from './showWeatherByGeolocation';
 import todayByLocalization from './utility/todayByLocalization';
 import forecastByLocalization from './utility/forecastByLocalization';
-import openLoader from './utility/openLoader';
-import closeLoader from './utility/closeLoader';
+// import openLoader from './utility/openLoader';
+// import closeLoader from './utility/closeLoader';
 
 import '../less/styles.less';
 

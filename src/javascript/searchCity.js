@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import saveToLocalStorage from './utility/saveToLocalStorage';
+// import saveToLocalStorage from './utility/saveToLocalStorage';
 import loadFromLocalStorage from './utility/loadFromLocalStorage';
 
 export default function search(callback) {
@@ -22,28 +22,14 @@ export default function search(callback) {
   }
   checkForDefaultLocationInLocalStorage();
 
-  btnGetCity.disabled = true;
-
   function searchCity(event) {
-    if (searchInput.value !== '' || searchInput.value === undefined) {
-      const addCityValidate = `
-        <h1>
-          <span class="name">Wybierz miasto z listy, pole nie moze byc puste.</span>
-        </h1>
-       `;
-      const textContent = document.createElement('div');
-      textContent.innerHTML = addCityValidate;
-      cityDescription.appendChild(textContent);
-    } else {
-      btnGetCity.disabled = false;
-      document.getElementById('datalist').innerHTML = '';
-      for (let i = 0; i < allCities; i += 1) {
-        if (convertArray[i].toLowerCase().indexOf(event.target.value.toLowerCase()) > -1) {
-          const node = document.createElement('option');
-          const val = document.createTextNode(convertArray[i]);
-          node.appendChild(val);
-          document.getElementById('datalist').appendChild(node);
-        }
+    document.getElementById('datalist').innerHTML = '';
+    for (let i = 0; i < allCities; i += 1) {
+      if (convertArray[i].toLowerCase().indexOf(event.target.value.toLowerCase()) > -1) {
+        const node = document.createElement('option');
+        const val = document.createTextNode(convertArray[i]);
+        node.appendChild(val);
+        document.getElementById('datalist').appendChild(node);
       }
     }
   }
@@ -57,18 +43,30 @@ export default function search(callback) {
       clearAll.innerHTML = '';
     }
     clearDiv();
-
     const chooseCity = searchInput.value;
-    const addCityDiv = `
+    if (chooseCity === '' || chooseCity === undefined) {
+      const addCityValidate = `
+        <h1>
+          <span class="name">Wybierz miasto z listy, pole nie moze byc puste.</span>
+        </h1>
+       `;
+      const textContent = document.createElement('div');
+      textContent.innerHTML = addCityValidate;
+      cityDescription.appendChild(textContent);
+      btnGetCity.disabled = true;
+    } else {
+      btnGetCity.disabled = false;
+      const addCityDiv = `
     <h1>
       <span class="name">Weather for ${chooseCity}</span>
     </h1>
   `;
-    const headingContent = document.createElement('div');
-    headingContent.innerHTML = addCityDiv;
-    cityDescription.appendChild(headingContent);
+      const headingContent = document.createElement('div');
+      headingContent.innerHTML = addCityDiv;
+      cityDescription.appendChild(headingContent);
 
-    callback(chooseCity);
+      callback(chooseCity);
+    }
 
     function saveDefaultLocationToLocalStorage() {
       if (setDefaultLocationCheckbox.checked) {
