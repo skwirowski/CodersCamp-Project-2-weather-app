@@ -22,14 +22,28 @@ export default function search(callback) {
   }
   checkForDefaultLocationInLocalStorage();
 
+  btnGetCity.disabled = true;
+
   function searchCity(event) {
-    document.getElementById('datalist').innerHTML = '';
-    for (let i = 0; i < allCities; i += 1) {
-      if (convertArray[i].toLowerCase().indexOf(event.target.value.toLowerCase()) > -1) {
-        const node = document.createElement('option');
-        const val = document.createTextNode(convertArray[i]);
-        node.appendChild(val);
-        document.getElementById('datalist').appendChild(node);
+    if (searchInput.value === '' || searchInput.value === undefined) {
+      const addCityValidate = `
+        <h1>
+          <span class="name">Wybierz miasto z listy, pole nie moze byc puste.</span>
+        </h1>
+       `;
+      const textContent = document.createElement('div');
+      textContent.innerHTML = addCityValidate;
+      cityDescription.appendChild(textContent);
+    } else {
+      btnGetCity.disabled = false;
+      document.getElementById('datalist').innerHTML = '';
+      for (let i = 0; i < allCities; i += 1) {
+        if (convertArray[i].toLowerCase().indexOf(event.target.value.toLowerCase()) > -1) {
+          const node = document.createElement('option');
+          const val = document.createTextNode(convertArray[i]);
+          node.appendChild(val);
+          document.getElementById('datalist').appendChild(node);
+        }
       }
     }
   }
@@ -45,9 +59,6 @@ export default function search(callback) {
     clearDiv();
 
     const chooseCity = searchInput.value;
-    // if(chooseCity = '') {
-    //   console.log('nie ma tego');
-    // }
     const addCityDiv = `
     <h1>
       <span class="name">Weather for ${chooseCity}</span>
