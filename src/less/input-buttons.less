@@ -2,18 +2,20 @@
 
 #getDatas {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .geolocation-btn,
 .submitCity {
     height: 4rem;
     border: 1px solid @background-color-mask;
-    border-radius: none;
     background-color: @background-color-mask;
     color: @high-emphasis-text-color;
     padding: 0 20px;
-    margin-left: 20px;
+    min-width: 15rem;
+    margin-top: 10px
 }
 
 .geolocation-btn:hover,
@@ -29,3 +31,31 @@
     background-color: transparent;
     color: @high-emphasis-text-color;
 }
+@media @breakpoint-small {
+    #getDatas {
+        flex-direction: column;
+    }
+    // .search,
+    // .geolocation-btn,
+    // .submitCity {
+        
+    // }
+}
+@media @breakpoint-medium {
+    #getDatas {
+        flex-direction: column;
+    }
+    .search {
+        width: 100%;
+    }
+    .geolocation-btn,
+    .submitCity {
+        width: 40%;
+    }
+}
+@media @breakpoint-large {
+    #getDatas {
+        flex-direction: row;
+    }
+}
+
