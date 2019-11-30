@@ -53,9 +53,7 @@ export default function search(callback) {
       const textContent = document.createElement('div');
       textContent.innerHTML = addCityValidate;
       cityDescription.appendChild(textContent);
-      btnGetCity.disabled = true;
     } else {
-      btnGetCity.disabled = false;
       const addCityDiv = `
     <h1>
       <span class="name">Weather for ${chooseCity}</span>

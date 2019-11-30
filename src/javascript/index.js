@@ -10,13 +10,13 @@ import showNextDaysWeatherData from './nextDaysWeather';
 import getGeolocation from './showWeatherByGeolocation';
 import todayByLocalization from './utility/todayByLocalization';
 import forecastByLocalization from './utility/forecastByLocalization';
-// import openLoader from './utility/openLoader';
-// import closeLoader from './utility/closeLoader';
+import openLoader from './utility/openLoader';
+import closeLoader from './utility/closeLoader';
 
 import '../less/styles.less';
 
 function getDataByName(cityName) {
-  // openLoader();
+  openLoader();
 
   Promise.all([todayByName(cityName), forecastByName(cityName), airQualityByName(cityName)])
     .then(response => {
@@ -25,12 +25,12 @@ function getDataByName(cityName) {
       showNextHoursWeather(response[1]);
       createAirQualityHTML(response[2]);
 
-      // closeLoader();
+      closeLoader();
     })
     .catch(error => console.log(error));
 }
 function getDataByLocation(lat, lon) {
-  // openLoader();
+  openLoader();
 
   Promise.all([todayByLocalization(lat, lon), forecastByLocalization(lat, lon), airQualityByLocalization(lat, lon)])
     .then(response => {
@@ -39,7 +39,7 @@ function getDataByLocation(lat, lon) {
       showNextDaysWeatherData(response[1].list);
       createAirQualityHTML(response[2]);
 
-      // closeLoader();
+      closeLoader();
     })
     .catch(error => console.log(error));
 }
