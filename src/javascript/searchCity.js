@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-// import saveToLocalStorage from './utility/saveToLocalStorage';
+import saveToLocalStorage from './utility/saveToLocalStorage';
 import loadFromLocalStorage from './utility/loadFromLocalStorage';
 
 export default function search(callback) {
@@ -41,9 +41,18 @@ export default function search(callback) {
     function clearDiv() {
       const clearAll = cityDescription;
       clearAll.innerHTML = '';
-
     }
     clearDiv();
+
+    function clearRegions() {
+      const regions = ['actual-weather-container', 'next-hours-weather', 'next-days-forecast-region'];
+      regions.forEach(region => {
+        const DOMelement = document.getElementById(region);
+        DOMelement.innerHTML = '';
+      });
+    }
+    clearRegions();
+
     const chooseCity = searchInput.value;
     if (chooseCity === '' || chooseCity === undefined) {
       const addCityValidate = `
