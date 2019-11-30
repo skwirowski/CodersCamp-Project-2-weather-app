@@ -25,7 +25,7 @@ export default function search(callback) {
   btnGetCity.disabled = true;
 
   function searchCity(event) {
-    if (searchInput.value === '' || searchInput.value === undefined) {
+    if (searchInput.value !== '' || searchInput.value === undefined) {
       const addCityValidate = `
         <h1>
           <span class="name">Wybierz miasto z listy, pole nie moze byc puste.</span>
