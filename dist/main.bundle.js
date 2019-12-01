@@ -18466,7 +18466,8 @@ function speechRecognition(event) {
 }
 
 /* harmony default export */ var utility_speechRecognition = (function () {
-  if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)) {
+  // if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)) {
+  if (/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)) {
     var chooseBtn = document.querySelector('#getDatas');
     var speechBtn = document.createElement('button');
     speechBtn.classList.add('speech-btn');

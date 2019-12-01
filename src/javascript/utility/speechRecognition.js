@@ -18,7 +18,8 @@ function speechRecognition(event) {
 }
 
 export default function() {
-  if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)) {
+  // if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)) {
+  if (/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)) {
     const chooseBtn = document.querySelector('#getDatas');
     const speechBtn = document.createElement('button');
     speechBtn.classList.add('speech-btn');
