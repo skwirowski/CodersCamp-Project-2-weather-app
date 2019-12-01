@@ -12,6 +12,7 @@ import todayByLocalization from './utility/todayByLocalization';
 import forecastByLocalization from './utility/forecastByLocalization';
 import openLoader from './utility/openLoader';
 import closeLoader from './utility/closeLoader';
+import speechRecognition from './utility/speechRecognition';
 
 import '../less/styles.less';
 
@@ -46,3 +47,4 @@ function getDataByLocation(lat, lon) {
 
 search(getDataByName);
 getGeolocation(getDataByLocation);
+speechRecognition();
