@@ -1,4 +1,30 @@
 # Weather Application
+Weather application build during Coders Camp web programming course.
+
+## Authors:
+- [MartaJaszewska](https://github.com/MartaJaszewska)
+- [Katarzyna](https://github.com/katarzyna-stepczynska)
+- [ŁukaSz](https://github.com/Webskey)
+- [Paweł Skwirowski](https://github.com/skwirowski)
+
+## Project technological stack:
+1. JavaScript ES6 + linters
+2. Webpack
+3. HTML5
+4. CSS3 - LESS Preprocessor
+5. Trello for project and tasks management
+
+## Application features:
+1. Get weather forecast by city name typed in input window. Polish city names has suggestions.
+2. Get weather forecast based on browsers  geolocation.
+3. Fill input with city name using browsers speach recognition.
+4. Save default city name to local store and use it by default on next application use.
+
+## Application sections:
+1. Input location methods.
+2. Current weather and meteorological data.
+3. Weather forecast for current day.
+4. Weather forecast for next days.
 
 ## How to start using application:
 1. Clone/download repository to hard drive,
