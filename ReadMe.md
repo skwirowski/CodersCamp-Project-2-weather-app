@@ -28,7 +28,9 @@ Weather application build during Coders Camp web programming course.
 
 ## How to start using application:
 1. Clone/download repository to hard drive,
-2. Run `npm install` script to install npm dependencies.
+2. Open `index.html` file.
+
+You can also run `npm install` script to install npm dependencies and check development mode.
 
 # Available scripts:
 ## `npm run build`
