@@ -1,20 +1,27 @@
 @import './settings.less';
 
-#getDatas {
-  display: flex;
-  justify-content: flex-start;
+#getDatas, 
+#getCity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
+#getCity h1 {
+    font-size: @default-font-size;
+    margin-top: 30px;
 
+}
 .geolocation-btn,
 .submitCity,
 .speech-btn {
-  height: 4rem;
-  border: 1px solid @background-color-mask;
-  border-radius: none;
-  background-color: @background-color-mask;
-  color: @high-emphasis-text-color;
-  padding: 0 20px;
-  margin-left: 20px;
+    height: 4rem;
+    border: 1px solid @background-color-mask;
+    background-color: @background-color-mask;
+    color: @high-emphasis-text-color;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .geolocation-btn:hover,
@@ -25,9 +32,49 @@
 }
 
 .search {
-  height: 4rem;
-  padding: 0 20px;
-  border: 1px solid #9791ae;
-  background-color: transparent;
-  color: @high-emphasis-text-color;
+    height: 4rem;
+    width: 100%;
+    border: 1px solid #9791ae;
+    background-color: transparent;
+    color: @high-emphasis-text-color;
 }
+
+.search[type=text] {
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+@media @breakpoint-medium {
+    #getDatas:first-child {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .geolocation-btn,
+    .submitCity,
+    .speech-btn {
+        width: 32%;
+    }
+}
+@media @breakpoint-large {
+    #getDatas {
+        flex-direction: row;
+    }
+    #getDatas:first-child {
+        justify-content: space-around;
+    }
+    .search,
+    .geolocation-btn,
+    .submitCity,
+    .speech-btn {
+        margin: 0 10px;
+    }
+    .search {
+        width: 40%;
+    }
+    .geolocation-btn,
+    .submitCity,
+    .speech-btn {
+        width: 17%;
+    }
+}
+

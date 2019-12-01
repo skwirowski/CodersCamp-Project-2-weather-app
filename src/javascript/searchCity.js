@@ -44,17 +44,28 @@ export default function search(callback) {
     }
     clearDiv();
 
-    const chooseCity = searchInput.value;
-    const addCityDiv = `
-    <h1>
-      <span class="name">Weather for ${chooseCity}</span>
-    </h1>
-  `;
-    const headingContent = document.createElement('div');
-    headingContent.innerHTML = addCityDiv;
-    cityDescription.appendChild(headingContent);
+    function clearRegions() {
+      const regions = ['actual-weather-container', 'next-hours-weather', 'next-days-forecast-region'];
+      regions.forEach(region => {
+        const DOMelement = document.getElementById(region);
+        DOMelement.innerHTML = '';
+      });
+    }
+    clearRegions();
 
-    callback(chooseCity);
+    const chooseCity = searchInput.value;
+    if (chooseCity === '' || chooseCity === undefined) {
+      const addCityValidate = `
+        <h1>
+          <span class="name">Wybierz miasto z listy, pole nie moze byc puste.</span>
+        </h1>
+       `;
+      const textContent = document.createElement('div');
+      textContent.innerHTML = addCityValidate;
+      cityDescription.appendChild(textContent);
+    } else {
+      callback(chooseCity);
+    }
 
     function saveDefaultLocationToLocalStorage() {
       if (setDefaultLocationCheckbox.checked) {
