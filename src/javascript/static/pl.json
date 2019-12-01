@@ -11,7 +11,7 @@
         "population": "2746000"
     }, 
     {
-        "city": "Warsaw", 
+        "city": "Warszawa", 
         "admin": "Mazowieckie", 
         "country": "Poland", 
         "population_proper": "1702139", 
@@ -229,18 +229,7 @@
         "lat": "54.193589", 
         "lng": "16.184916", 
         "population": "107450"
-    }, 
-    {
-        "city": "Twierdza Grudziadz", 
-        "admin": "Kujawsko-Pomorskie", 
-        "country": "Poland", 
-        "population_proper": "99486", 
-        "iso2": "PL", 
-        "capital": "", 
-        "lat": "53.5", 
-        "lng": "18.75", 
-        "population": "102443"
-    }, 
+    },
     {
         "city": "Inowroc\u0142aw", 
         "admin": "Kujawsko-Pomorskie", 
